@@ -2,6 +2,19 @@ export const FETCH_WEATHER = "FETCH_WEATHER";
 export const SET_LOADING = "SET_LOADING";
 export const SET_ERROR = "SET_ERROR";
 
+export interface City {
+  country: string;
+  id: number;
+  name: string;
+}
+
+export interface QueryBase {
+  city: City;
+  cnt: number;
+  cod: number;
+  list: WeatherData[];
+}
+
 export interface Weather {
   description: string;
   icon: string;
@@ -20,6 +33,7 @@ export interface WeatherData {
     lat: number;
   };
   dt: number;
+  dt_txt: string;
   id: number;
   main: {
     feels_like: number;
@@ -47,7 +61,7 @@ export interface WeatherData {
 }
 
 export interface WeatherState {
-  data: WeatherData | null;
+  data: WeatherData[] | null;
   loading: boolean;
   error: string;
 }
@@ -57,15 +71,9 @@ export interface WeatherError {
   message: string;
 }
 
-export interface WeatherState {
-  data: WeatherData | null;
-  loading: boolean;
-  error: string;
-}
-
 interface FetchWeatherAction {
   type: typeof FETCH_WEATHER;
-  payload: WeatherData;
+  payload: WeatherData[];
 }
 
 interface SetLoadingAction {
