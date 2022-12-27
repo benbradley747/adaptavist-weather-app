@@ -61,7 +61,7 @@ export interface WeatherData {
 }
 
 export interface WeatherState {
-  data: WeatherData[] | null;
+  data: QueryBase | null;
   loading: boolean;
   error: string;
 }
@@ -73,7 +73,7 @@ export interface WeatherError {
 
 interface FetchWeatherAction {
   type: typeof FETCH_WEATHER;
-  payload: WeatherData[];
+  payload: QueryBase;
 }
 
 interface SetLoadingAction {

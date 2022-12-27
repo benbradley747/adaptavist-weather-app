@@ -32,18 +32,9 @@ export const fetchWeatherData = (
       const weatherData: QueryBase = await res.json();
       console.log("fetched this: ", weatherData);
 
-      // the free openweatherapi key gives a 5 day forecast with
-      // updates every 3 hours, i.e. 8 forecasts each day. to get
-      // one forecast for each day, we need every 8th element in the 
-      // fetched list of forecast data.
-      var forecast: WeatherData[] = [];
-      for (var i = 5; i < weatherData.list.length; i += 8) {
-        forecast.push(weatherData.list[i]);
-      }
-
       dispatch({
         type: FETCH_WEATHER,
-        payload: forecast,
+        payload: weatherData,
       });
       
     } catch (e: any) {

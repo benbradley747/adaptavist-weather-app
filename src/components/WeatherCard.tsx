@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import { useAppSelector } from "../store/hooks";
 import { WeatherData } from "../store/types";
 import WeatherIcon from "./WeatherIcon";
 
@@ -8,14 +7,13 @@ interface WeatherCardProps {
 }
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 
 const WeatherCard = ({data}: WeatherCardProps) => {
-    console.log("ICON:", data.weather[0].icon)
-
     const getDate = (text: string): string => {
         const date = new Date(text);
-        return days[date.getDay()];
+        return `${days[date.getDay()]}, ${months[date.getMonth()]} ${+ date.getDate()}`;
     }
 
     return (
