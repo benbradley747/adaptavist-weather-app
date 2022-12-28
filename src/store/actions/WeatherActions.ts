@@ -1,7 +1,6 @@
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "..";
 import {
-  WeatherData,
   WeatherError,
   FETCH_WEATHER,
   SET_ERROR,
@@ -29,12 +28,12 @@ export const fetchWeatherData = (
         throw new Error(resData.message);
       }
 
-      const weatherData: QueryBase = await res.json();
-      console.log("fetched this: ", weatherData);
+      const weatherQuery: QueryBase = await res.json();
+      console.log("fetched this: ", weatherQuery);
 
       dispatch({
         type: FETCH_WEATHER,
-        payload: weatherData,
+        payload: weatherQuery,
       });
       
     } catch (e: any) {
