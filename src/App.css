@@ -1,6 +1,6 @@
 body {
   background-image: url(/assets/pattern.svg);
-}
+} 
 
 #root {
   max-width: 1280px;
@@ -9,37 +9,23 @@ body {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.weatherCardContainer {
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weatherCard {
+  cursor: pointer;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #cfe8ef;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.weatherCard:hover {
+  background-color: aliceblue;
+  transform: scale(1.05);
+  box-shadow: 0 0 5px 3px rgb(0, 0, 0, 0.2);
 }
