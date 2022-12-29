@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Search />
+      <Search margin="auto" />
       <WeatherCardContainer />
     </div>
   );

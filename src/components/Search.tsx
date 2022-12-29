@@ -1,9 +1,14 @@
-import { Button, TextField } from "@mui/material"
+import { Button, Divider, IconButton, InputBase, Paper, TextField } from "@mui/material"
+import SearchIcon from '@mui/icons-material/Search';
 import React, { useState } from "react";
 import { fetchWeatherData } from "../store/actions/WeatherActions";
 import { useAppDispatch } from "../store/hooks"
 
-const Search = () => {
+interface SearchProps {
+    margin: number | string;
+}
+
+const Search = ({ margin }: SearchProps) => {
     const dispatch = useAppDispatch();
     const [query, setQuery] = useState<string>("");
 
@@ -13,10 +18,18 @@ const Search = () => {
     }
 
     return (
-        <div>
-            <TextField variant="outlined" placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
-            <Button variant="contained" color="success" onClick={(e) => handleSubmit(e)}>Get Weather</Button>
-        </div>
+        <Paper sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: 400, margin: margin }}>
+            <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Search City"
+                inputProps={{ 'aria-label': 'search google maps' }}
+                onChange={(e) => setQuery(e.target.value)}
+            />
+            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+            <IconButton onClick={(e) => handleSubmit(e)} type="button" sx={{ p: '10px' }} aria-label="search">
+                <SearchIcon />
+            </IconButton>
+        </Paper>
     )
 }
 

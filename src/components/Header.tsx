@@ -25,7 +25,7 @@ const Header = () => {
                     My Weather App
                 </Typography>
             </Box>
-            <Search />
+            <Search margin={0} />
         </Box >
     );
 }
