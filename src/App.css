@@ -28,7 +28,7 @@ body {
 }
 
 .weatherCard:hover {
-  background-color: aliceblue;
-  transform: scale(1.05);
+  background-color: white;
+  transform: scale(1.025);
   box-shadow: 0 0 5px 3px rgb(0, 0, 0, 0.2);
 }

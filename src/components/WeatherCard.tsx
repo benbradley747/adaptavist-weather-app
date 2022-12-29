@@ -33,15 +33,17 @@ const months = [
 ]
 
 const modalStyle = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'gray',
-    border: '2px solid #000',
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 350,
+    bgcolor: "white",
+    border: 0,
+    borderRadius: "8px",
     boxShadow: 24,
-    p: 4,
+    pb: 6,
+    textAlign: "center"
 }
 
 const typographyStyle = {
@@ -68,10 +70,12 @@ const WeatherCard = ({ data }: WeatherCardProps) => {
                         path={`/assets/weather-icons/${data.weather[0].icon}.svg`}
                     />
                     <div>
-                        <Typography sx={typographyStyle}>
+                        <Typography variant="h5" sx={typographyStyle}>
                             {days[new Date(data.dt_txt).getDay()]},
                         </Typography>
-                        <Typography sx={typographyStyle}>{getDate(data.dt_txt)}</Typography>
+                        <Typography variant="h5" sx={typographyStyle}>
+                            {getDate(data.dt_txt)}
+                        </Typography>
                     </div>
                 </div>
             </div>
@@ -80,11 +84,11 @@ const WeatherCard = ({ data }: WeatherCardProps) => {
                     <WeatherIcon
                         path={`/assets/weather-icons/${data.weather[0].icon}.svg`}
                     />
-                    <Typography variant="h4">{city?.name}</Typography>
-                    <Typography>{data.weather[0].description}</Typography>
-                    <Typography>min temp: {Math.round(data.main.temp_min)}°F</Typography>
-                    <Typography>max temp: {Math.round(data.main.temp_max)}°F</Typography>
-                    <Typography>humidity: {data.main.humidity}%</Typography>
+                    <Typography variant="h4" sx={typographyStyle}>{city?.name}</Typography>
+                    <Typography variant="h5" sx={typographyStyle}>{data.weather[0].description}</Typography>
+                    <Typography variant="h5" sx={typographyStyle}>min temp: {Math.round(data.main.temp_min)}°F</Typography>
+                    <Typography variant="h5" sx={typographyStyle}>max temp: {Math.round(data.main.temp_max)}°F</Typography>
+                    <Typography variant="h5" sx={typographyStyle}>humidity: {data.main.humidity}%</Typography>
                 </Box>
             </Modal>
         </div>
