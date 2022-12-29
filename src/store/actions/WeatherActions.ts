@@ -35,7 +35,6 @@ export const fetchWeatherData = (
         type: FETCH_WEATHER,
         payload: weatherQuery,
       });
-      
     } catch (e: any) {
       dispatch({
         type: SET_ERROR,

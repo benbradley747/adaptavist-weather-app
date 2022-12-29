@@ -1,17 +1,19 @@
 import { Box, Typography, Fade } from '@mui/material'
 import FadeIn from 'react-fade-in'
 import { useAppSelector } from '../store/hooks'
-import { WeatherData } from '../store/types'
+import { QueryBase, Weather, WeatherData } from '../store/types'
 import WeatherCard from './WeatherCard'
+
+interface WeatherCardContainerProps {
+    weatherData: QueryBase | null;
+}
 
 const containerStyle = {
     padding: 2,
     alignItems: "center",
 }
 
-const WeatherCardContainer = () => {
-    const weatherData = useAppSelector((state) => state.weather.data)
-
+const WeatherCardContainer = ({ weatherData }: WeatherCardContainerProps) => {
     return (
         <div>
             {weatherData?.list != null ? (

@@ -1,7 +1,7 @@
 import { Button, Divider, IconButton, InputBase, Paper, TextField } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search';
 import React, { useState } from "react";
-import { fetchWeatherData } from "../store/actions/WeatherActions";
+import { fetchWeatherData, setLoading } from "../store/actions/WeatherActions";
 import { useAppDispatch } from "../store/hooks"
 
 interface SearchProps {
@@ -14,7 +14,8 @@ const Search = ({ margin }: SearchProps) => {
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        dispatch(fetchWeatherData(query))
+        dispatch(setLoading());
+        dispatch(fetchWeatherData(query));
     }
 
     return (

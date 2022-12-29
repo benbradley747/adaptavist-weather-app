@@ -2,9 +2,9 @@ interface WeatherIconProps {
     path: string
 }
 
-const WeatherIcon = ({path}: WeatherIconProps) => {
+const WeatherIcon = ({ path }: WeatherIconProps) => {
     return (
-        <img src={path} width="120px" height="120px" alt="" />
+        <img src={path} width="200px" height="220px" alt="" />
     )
 }
 
