@@ -4,7 +4,7 @@ interface WeatherIconProps {
 
 const WeatherIcon = ({path}: WeatherIconProps) => {
     return (
-        <img src={path} alt="" />
+        <img src={path} width="120px" height="120px" alt="" />
     )
 }
 
