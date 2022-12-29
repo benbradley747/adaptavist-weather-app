@@ -5,9 +5,8 @@ import { WeatherData } from '../store/types'
 import WeatherCard from './WeatherCard'
 
 const containerStyle = {
-    backgroundColor: '#5b7c99',
-    borderRadius: 2,
     padding: 2,
+    alignItems: "center",
 }
 
 const WeatherCardContainer = () => {

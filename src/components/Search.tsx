@@ -14,7 +14,7 @@ const Search = () => {
 
     return (
         <div>
-            <TextField variant="outlined" placeholder="Search" onChange={(e) => setQuery(e.target.value)}/>
+            <TextField variant="outlined" placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
             <Button variant="contained" color="success" onClick={(e) => handleSubmit(e)}>Get Weather</Button>
         </div>
     )

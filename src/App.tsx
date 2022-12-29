@@ -1,11 +1,13 @@
 import "./App.css";
+import Header from "./components/Header";
 import Search from "./components/Search"
 import WeatherCardContainer from "./components/WeatherCardContainer";
 
 const App = () => {
   return (
     <div className="App">
-      <Search/>
+      <Header />
+      <Search />
       <WeatherCardContainer />
     </div>
   );
