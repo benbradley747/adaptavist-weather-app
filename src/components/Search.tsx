@@ -13,6 +13,7 @@ const Search = ({ margin }: SearchProps) => {
     const [query, setQuery] = useState<string>("");
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        setQuery("");
         e.preventDefault();
         dispatch(setLoading());
         dispatch(fetchWeatherData(query));
@@ -22,6 +23,7 @@ const Search = ({ margin }: SearchProps) => {
         <Paper sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: 400, margin: margin }}>
             <InputBase
                 sx={{ ml: 1, flex: 1 }}
+                value={query}
                 placeholder="Search City"
                 inputProps={{ 'aria-label': 'search google maps' }}
                 onChange={(e) => setQuery(e.target.value)}

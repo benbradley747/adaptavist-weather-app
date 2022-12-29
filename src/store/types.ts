@@ -73,7 +73,7 @@ export interface WeatherError {
 
 interface FetchWeatherAction {
   type: typeof FETCH_WEATHER;
-  payload: QueryBase;
+  payload: QueryBase | null;
 }
 
 interface SetLoadingAction {

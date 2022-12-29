@@ -1,5 +1,5 @@
-import { AppBar, Box, Button, IconButton, Toolbar, Typography } from "@mui/material";
-import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
+import { Box, Typography } from "@mui/material";
+import CloudIcon from '@mui/icons-material/Cloud';
 import Search from "./Search";
 
 const headerStyles = {
@@ -20,7 +20,7 @@ const Header = () => {
     return (
         <Box sx={headerStyles}>
             <Box sx={{ display: "inline-flex" }}>
-                <ThunderstormIcon sx={{ paddingRight: 1 }} fontSize="large" />
+                <CloudIcon sx={{ paddingRight: 1 }} fontSize="large" />
                 <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
                     My Weather App
                 </Typography>

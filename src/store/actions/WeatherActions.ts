@@ -25,6 +25,10 @@ export const fetchWeatherData = (
 
       if (!res.ok) {
         const resData: WeatherError = await res.json();
+        dispatch({
+          type: FETCH_WEATHER,
+          payload: null
+        });
         throw new Error(resData.message);
       }
 
