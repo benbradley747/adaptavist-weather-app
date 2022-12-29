@@ -23,7 +23,7 @@ body {
   margin-right: 16px;
   padding: 16px;
   border-radius: 8px;
-  background-color: #cfe8ef;
+  background-color: white;
   transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
