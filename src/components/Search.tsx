@@ -1,11 +1,4 @@
-import {
-  Button,
-  Divider,
-  IconButton,
-  InputBase,
-  Paper,
-  TextField,
-} from '@mui/material';
+import { Divider, IconButton, InputBase, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import React, { useState } from 'react';
 import { fetchWeatherData, setLoading } from '../store/actions/WeatherActions';

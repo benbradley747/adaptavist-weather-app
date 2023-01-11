@@ -1,7 +1,6 @@
-import { Box, Typography, Fade } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import FadeIn from 'react-fade-in';
-import { useAppSelector } from '../store/hooks';
-import { QueryBase, Weather, WeatherData } from '../store/types';
+import { QueryBase, WeatherData } from '../store/types';
 import WeatherCard from './WeatherCard';
 
 interface WeatherCardContainerProps {
