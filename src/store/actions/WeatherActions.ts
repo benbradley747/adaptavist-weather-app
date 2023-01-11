@@ -25,10 +25,6 @@ export const fetchWeatherData = (
 
       if (!res.ok) {
         const resData: WeatherError = await res.json();
-        dispatch({
-          type: FETCH_WEATHER,
-          payload: null
-        });
         throw new Error(resData.message);
       }
 
@@ -42,7 +38,8 @@ export const fetchWeatherData = (
     } catch (e: any) {
       dispatch({
         type: SET_ERROR,
-        payload: e.message,
+        payload: null,
+        message: e.message,
       });
     }
   };
@@ -54,9 +51,10 @@ export const setLoading = (): WeatherAction => {
   };
 };
 
-export const setError = (): WeatherAction => {
+export const setError = (message: string): WeatherAction => {
   return {
     type: SET_ERROR,
-    payload: "",
+    payload: null,
+    message: message,
   };
 };
