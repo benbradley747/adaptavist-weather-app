@@ -3,7 +3,7 @@
 
 body {
   background-image: url(/assets/pattern.svg);
-} 
+}
 
 #root {
   width: 100vw;
@@ -24,7 +24,7 @@ body {
   padding: 16px;
   border-radius: 8px;
   background-color: white;
-  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1); 
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .weatherCard:hover {

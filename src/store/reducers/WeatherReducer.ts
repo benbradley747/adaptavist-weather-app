@@ -4,12 +4,12 @@ import {
   SET_LOADING,
   WeatherAction,
   WeatherState,
-} from "../types";
+} from '../types';
 
 const initialState: WeatherState = {
   data: null,
   loading: false,
-  error: "",
+  error: '',
 };
 
 export default (state = initialState, action: WeatherAction): WeatherState => {
@@ -18,7 +18,7 @@ export default (state = initialState, action: WeatherAction): WeatherState => {
       return {
         data: action.payload,
         loading: false,
-        error: "",
+        error: '',
       };
     case SET_LOADING:
       return {

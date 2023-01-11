@@ -1,11 +1,9 @@
 interface WeatherIconProps {
-    path: string
+  path: string;
 }
 
 const WeatherIcon = ({ path }: WeatherIconProps) => {
-    return (
-        <img src={path} width="200px" height="220px" alt="" />
-    )
-}
+  return <img src={path} width="200px" height="220px" alt="" />;
+};
 
 export default WeatherIcon;
