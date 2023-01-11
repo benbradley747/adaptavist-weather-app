@@ -28,7 +28,8 @@ export default (state = initialState, action: WeatherAction): WeatherState => {
     case SET_ERROR:
       return {
         ...state,
-        error: action.payload,
+        data: action.payload,
+        error: action.message,
         loading: false,
       };
     default:

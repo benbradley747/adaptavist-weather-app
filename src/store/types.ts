@@ -82,7 +82,8 @@ interface SetLoadingAction {
 
 interface SetErrorAction {
   type: typeof SET_ERROR;
-  payload: string;
+  payload: null;
+  message: string;
 }
 
 export type WeatherAction =
