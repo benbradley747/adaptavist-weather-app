@@ -7,6 +7,7 @@ import {
   WeatherAction,
   SET_LOADING,
   QueryBase,
+  WeatherData,
 } from '../types';
 
 const api = {
@@ -31,9 +32,19 @@ export const fetchWeatherData = (
       const weatherQuery: QueryBase = await res.json();
       console.log('fetched this: ', weatherQuery);
 
+      var forecast: WeatherData[] = [];
+
+      // 5 day forecast
+      var forecastLength = 5;
+      var delta = weatherQuery.list.length / forecastLength;
+
+      for (var i = 0; i < weatherQuery.list.length; i += delta) {
+        forecast.push({ ...weatherQuery.list[i], city: weatherQuery.city });
+      }
+
       dispatch({
         type: FETCH_WEATHER,
-        payload: weatherQuery,
+        payload: forecast,
       });
     } catch (e: any) {
       dispatch({
