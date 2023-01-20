@@ -17,6 +17,7 @@ const api = {
 
 export const fetchWeatherData = (
   city: string,
+  size: number,
 ): ThunkAction<void, RootState, undefined, WeatherAction> => {
   return async (dispatch) => {
     try {
@@ -33,13 +34,13 @@ export const fetchWeatherData = (
       console.log('fetched this: ', weatherQuery);
 
       var forecast: WeatherData[] = [];
+      var delta = weatherQuery.list.length / 5;
 
-      // 5 day forecast
-      var forecastLength = 5;
-      var delta = weatherQuery.list.length / forecastLength;
-
-      for (var i = 0; i < weatherQuery.list.length; i += delta) {
-        forecast.push({ ...weatherQuery.list[i], city: weatherQuery.city });
+      for (var i = 1; i < size + 1; i++) {
+        forecast.push({
+          ...weatherQuery.list[i * delta - 1],
+          city: weatherQuery.city,
+        });
       }
 
       dispatch({
