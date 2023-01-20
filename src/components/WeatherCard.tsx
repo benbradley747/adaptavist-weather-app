@@ -51,7 +51,6 @@ const typographyStyle = {
 };
 
 const WeatherCard = ({ data }: WeatherCardProps) => {
-  const city = useAppSelector((state) => state.weather.data?.city);
   const [modal, setModal] = useState(false);
 
   const handleOpen = () => setModal(true);
@@ -85,7 +84,7 @@ const WeatherCard = ({ data }: WeatherCardProps) => {
             path={`/assets/weather-icons/${data.weather[0].icon}.svg`}
           />
           <Typography variant="h4" sx={typographyStyle}>
-            {city?.name}
+            {data.city.name}
           </Typography>
           <Typography variant="h5" sx={typographyStyle}>
             {data.weather[0].description}

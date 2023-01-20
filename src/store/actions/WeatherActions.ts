@@ -7,6 +7,7 @@ import {
   WeatherAction,
   SET_LOADING,
   QueryBase,
+  WeatherData,
 } from '../types';
 
 const api = {
@@ -16,6 +17,7 @@ const api = {
 
 export const fetchWeatherData = (
   city: string,
+  size: number,
 ): ThunkAction<void, RootState, undefined, WeatherAction> => {
   return async (dispatch) => {
     try {
@@ -31,9 +33,19 @@ export const fetchWeatherData = (
       const weatherQuery: QueryBase = await res.json();
       console.log('fetched this: ', weatherQuery);
 
+      var forecast: WeatherData[] = [];
+      var delta = weatherQuery.list.length / 5;
+
+      for (var i = 1; i < size + 1; i++) {
+        forecast.push({
+          ...weatherQuery.list[i * delta - 1],
+          city: weatherQuery.city,
+        });
+      }
+
       dispatch({
         type: FETCH_WEATHER,
-        payload: weatherQuery,
+        payload: forecast,
       });
     } catch (e: any) {
       dispatch({

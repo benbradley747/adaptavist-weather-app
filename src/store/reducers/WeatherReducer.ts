@@ -16,6 +16,7 @@ export default (state = initialState, action: WeatherAction): WeatherState => {
   switch (action.type) {
     case FETCH_WEATHER:
       return {
+        ...state,
         data: action.payload,
         loading: false,
         error: '',

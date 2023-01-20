@@ -23,6 +23,7 @@ export interface Weather {
 }
 
 export interface WeatherData {
+  city: City;
   base: string;
   clouds: {
     all: number;
@@ -61,7 +62,7 @@ export interface WeatherData {
 }
 
 export interface WeatherState {
-  data: QueryBase | null;
+  data: WeatherData[] | null;
   loading: boolean;
   error: string;
 }
@@ -73,7 +74,7 @@ export interface WeatherError {
 
 interface FetchWeatherAction {
   type: typeof FETCH_WEATHER;
-  payload: QueryBase | null;
+  payload: WeatherData[] | null;
 }
 
 interface SetLoadingAction {

@@ -1,4 +1,13 @@
-import { Divider, IconButton, InputBase, Paper } from '@mui/material';
+import {
+  Divider,
+  FormControl,
+  IconButton,
+  InputBase,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import React, { useState } from 'react';
 import { fetchWeatherData, setLoading } from '../store/actions/WeatherActions';
@@ -10,7 +19,9 @@ interface SearchProps {
 
 const Search = ({ margin }: SearchProps) => {
   const dispatch = useAppDispatch();
+  const selectorItems = [1, 2, 3, 4, 5];
   const [query, setQuery] = useState<string>('');
+  const [size, setSize] = useState<number>(5);
 
   const handleSubmit = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -18,7 +29,7 @@ const Search = ({ margin }: SearchProps) => {
     setQuery('');
     e.preventDefault();
     dispatch(setLoading());
-    dispatch(fetchWeatherData(query));
+    dispatch(fetchWeatherData(query, size));
   };
 
   return (
@@ -37,6 +48,20 @@ const Search = ({ margin }: SearchProps) => {
         inputProps={{ 'aria-label': 'search google maps' }}
         onChange={(e) => setQuery(e.target.value)}
       />
+      <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+      <FormControl variant="standard">
+        <Select
+          value={size}
+          onChange={(e) => setSize(e.target.value as number)}>
+          {selectorItems.map((val, i) => {
+            return (
+              <MenuItem key={i} value={val}>
+                {val}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <IconButton
         onClick={(e) => handleSubmit(e)}
